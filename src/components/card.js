@@ -78,7 +78,7 @@ const cardAppender = (selector) => {
     console.log('This is the response', res);
   })
   .catch(err => {
-    debugger;
+    //debugger;
     console.log('This is if there was an error', err);
   });
 

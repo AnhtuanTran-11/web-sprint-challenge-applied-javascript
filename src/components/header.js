@@ -31,6 +31,7 @@ const Header = (title, date, temp) => {
   headerDiv.appendChild(spanTemp);
   
   document.querySelector('.header-container').appendChild(headerDiv);
+  console.log("this is the headerDiv", headerDiv);
   return headerDiv;
 }
 
@@ -42,8 +43,7 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 
-  const eachHeader = Header("Vallarta Times", "January 15, 2021", "89°");
-  document.querySelector(selector).appendChild(eachHeader);
+  document.querySelector(selector).appendChild(Header("Vallarta Times", "January 15, 2021", "89°"));
 }
 
 export { Header, headerAppender }
