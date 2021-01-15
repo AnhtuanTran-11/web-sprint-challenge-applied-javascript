@@ -22,15 +22,15 @@ const Header = (title, date, temp) => {
   spanDate.classList.add('date');
   spanTemp.classList.add('temp');
 
-  spanDate.textContent = `${date}`;
-  h1Title.textContent = `${title}`;
-  spanTemp.textContent = `${temp}`;
+  spanDate.textContent = date;
+  h1Title.textContent = title;
+  spanTemp.textContent = temp;
 
   headerDiv.appendChild(spanDate);
   headerDiv.appendChild(h1Title);
   headerDiv.appendChild(spanTemp);
   
-  document.querySelector('.header-container').append(headerDiv);
+  document.querySelector('.header-container').appendChild(headerDiv);
   return headerDiv;
 }
 
@@ -42,6 +42,8 @@ const headerAppender = (selector) => {
   // It should append the header to the element in the DOM that matches the given selector.
   //
 
+  const eachHeader = Header("Vallarta Times", "January 15, 2021", "89°");
+  document.querySelector(selector).appendChild(eachHeader);
 }
 
 export { Header, headerAppender }

@@ -17,25 +17,32 @@ const Tabs = (topics) => {
   // </div>
   //
 
-  const arrayOfStrings = ["Javascript", "Bootstrap", "Technology"];
-
   const divTopics = document.createElement('div');
   const divTab1 = document.createElement('div');
   const divTab2 = document.createElement('div');
   const divTab3 = document.createElement('div');
+  const divTab4 = document.createElement('div');
+  const divTab5 = document.createElement('div');
+
 
   divTopics.classList.add('topics');
   divTab1.classList.add('tab');
   divTab2.classList.add('tab');
   divTab3.classList.add('tab');
+  divTab4.classList.add('tab');
+  divTab5.classList.add('tab');
 
-  divTab1.textContent = arrayOfStrings[0];
-  divTab2.textContent= arrayOfStrings[1];
-  divTab3.textContent = arrayOfStrings[2];
+  divTab1.textContent = topics[0];
+  divTab2.textContent=  topics[1];
+  divTab3.textContent = topics[2];
+  divTab4.textContent = topics[3];
+  divTab5.textContent = topics[4];
 
   divTopics.appendChild(divTab1);
   divTopics.appendChild(divTab2);
   divTopics.appendChild(divTab3);
+  divTopics.appendChild(divTab4);
+  divTopics.appendChild(divTab5);
 
   document.querySelector('.tabs-container').append(divTopics);
 
@@ -53,13 +60,16 @@ const tabsAppender = (selector) => {
   //
   axios.get("https://lambda-times-api.herokuapp.com/topics")
   .then(res => {
-    Tabs(res.data);
+    const eachTab = Tabs(res.data.topics);
+    document.querySelector(selector).appendChild(eachTab);
     console.log('This is the response', res);
   })
   .catch(err => {
     debugger;
     console.log('This is if there was an error', err);
   });
+
+  
 
 }
 
